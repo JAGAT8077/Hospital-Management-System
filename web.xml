@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    
+    <display-name>Hospital Management System</display-name>
+    
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <!-- Servlet Configuration -->
+    <servlet>
+        <servlet-name>PatientServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.PatientServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>PatientServlet</servlet-name>
+        <url-pattern>/api/patients/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DemoServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.DemoServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>DemoServlet</servlet-name>
+        <url-pattern>/demo</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Error Pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.html</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.html</location>
+    </error-page>
+    
+    <!-- Context Parameters -->
+    <context-param>
+        <param-name>db.url</param-name>
+        <param-value>jdbc:mysql://localhost:3306/hospital_db</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>db.username</param-name>
+        <param-value>hospital_user</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>db.password</param-name>
+        <param-value>hospital123</param-value>
+    </context-param>
+</web-app>
