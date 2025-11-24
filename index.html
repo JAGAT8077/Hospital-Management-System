@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System - Java Project</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hospital-alt"></i>
+                <span>Hospital Management System</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="features.html" class="nav-link">Features</a></li>
+                <li><a href="documentation.html" class="nav-link">Documentation</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="demo" class="nav-link">Live Demo</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Advanced Hospital Management System</h1>
+                <p class="hero-subtitle">Full-stack Java application with Servlet, JSP, JDBC, and modern web technologies</p>
+                <div class="hero-buttons">
+                    <a href="#demo" class="btn btn-primary">Live Demo</a>
+                    <a href="api/patients" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-database"></i> View API
+                    </a>
+                    <a href="https://github.com/your-username/hospital-management-system" class="btn btn-outline" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+                <div class="tech-badges">
+                    <span class="tech-badge">Java Servlets</span>
+                    <span class="tech-badge">JSP</span>
+                    <span class="tech-badge">JDBC</span>
+                    <span class="tech-badge">MySQL</span>
+                    <span class="tech-badge">REST API</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="system-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <h3>2000+</h3>
+                            <p>Lines of Java Code</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-database"></i>
+                        <div>
+                            <h3>5</h3>
+                            <p>Database Tables</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-layer-group"></i>
+                        <div>
+                            <h3>15+</h3>
+                            <p>Java Classes</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-rocket"></i>
+                        <div>
+                            <h3>4</h3>
+                            <p>Core Modules</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section with Java Backend -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <h2 class="section-title">Interactive Java Demo</h2>
+            <div class="demo-container">
+                <div class="demo-controls">
+                    <button class="demo-btn active" data-tab="patients">Manage Patients</button>
+                    <button class="demo-btn" data-tab="appointments">Schedule Appointments</button>
+                    <button class="demo-btn" data-tab="database">Database Operations</button>
+                    <button class="demo-btn" data-tab="api">REST API</button>
+                </div>
+                <div class="demo-content">
+                    <div id="patients-tab" class="demo-tab active">
+                        <h3>Patient Management (Java Backend)</h3>
+                        <div class="demo-form">
+                            <input type="text" id="patientName" placeholder="Patient Name" class="form-input">
+                            <input type="email" id="patientEmail" placeholder="Email" class="form-input">
+                            <input type="text" id="patientPhone" placeholder="Phone" class="form-input">
+                            <button onclick="addPatient()" class="btn btn-primary">
+                                <i class="fas fa-user-plus"></i> Add Patient
+                            </button>
+                            <button onclick="loadPatients()" class="btn btn-secondary">
+                                <i class="fas fa-sync"></i> Load Patients
+                            </button>
+                        </div>
+                        <div class="demo-output">
+                            <div id="patientOutput" class="output-console">
+                                <p>Patient operations will be displayed here...</p>
+                            </div>
+                            <div id="patientsList" class="data-table"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="api-tab" class="demo-tab">
+                        <h3>REST API Endpoints</h3>
+                        <div class="api-endpoints">
+                            <div class="endpoint">
+                                <span class="method get">GET</span>
+                                <code>/api/patients</code>
+                                <span class="desc">Get all patients</span>
+                            </div>
+                            <div class="endpoint">
+                                <span class="method post">POST</span>
+                                <code>/api/patients</code>
+                                <span class="desc">Add new patient</span>
+                            </div>
+                            <div class="endpoint">
+                                <span class="method get">GET</span>
+                                <code>/api/patients/{id}</code>
+                                <span class="desc">Get patient by ID</span>
+                            </div>
+                            <div class="endpoint">
+                                <span class="method put">PUT</span>
+                                <code>/api/patients/{id}</code>
+                                <span class="desc">Update patient</span>
+                            </div>
+                            <div class="endpoint">
+                                <span class="method delete">DELETE</span>
+                                <code>/api/patients/{id}</code>
+                                <span class="desc">Delete patient</span>
+                            </div>
+                        </div>
+                        <button onclick="testAPI()" class="btn btn-primary">Test API</button>
+                        <div id="apiOutput" class="output-console mt-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Java Backend Architecture -->
+    <section class="architecture">
+        <div class="container">
+            <h2 class="section-title">Java Backend Architecture</h2>
+            <div class="arch-diagram">
+                <div class="arch-layer">
+                    <div class="layer-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3>Presentation Layer</h3>
+                    </div>
+                    <div class="layer-content">
+                        <p>HTML, CSS, JavaScript</p>
+                        <p>JSP Pages</p>
+                        <p>REST API Consumers</p>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <div class="layer-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Controller Layer</h3>
+                    </div>
+                    <div class="layer-content">
+                        <p>Java Servlets</p>
+                        <p>REST Controllers</p>
+                        <p>Request Handling</p>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <div class="layer-header">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Service Layer</h3>
+                    </div>
+                    <div class="layer-content">
+                        <p>Business Logic</p>
+                        <p>Transaction Management</p>
+                        <p>Validation</p>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <div class="layer-header">
+                        <i class="fas fa-database"></i>
+                        <h3>DAO Layer</h3>
+                    </div>
+                    <div class="layer-content">
+                        <p>JDBC Operations</p>
+                        <p>Database Access</p>
+                        <p>CRUD Operations</p>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <div class="layer-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Database Layer</h3>
+                    </div>
+                    <div class="layer-content">
+                        <p>MySQL Database</p>
+                        <p>Stored Procedures</p>
+                        <p>Data Persistence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hospital Management System</h3>
+                    <p>Full-stack Java application demonstrating enterprise-level programming concepts.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Backend Technologies</h4>
+                    <ul>
+                        <li>Java Servlets & JSP</li>
+                        <li>JDBC & MySQL</li>
+                        <li>RESTful Web Services</li>
+                        <li>Maven Build System</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Frontend Technologies</h4>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript ES6+</li>
+                        <li>Responsive Design</li>
+                        <li>REST API Integration</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hospital Management System. Built with Java Enterprise Technologies.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/demo.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>
